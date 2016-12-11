@@ -1,5 +1,6 @@
 .page-section {
     padding: 4.5rem 0;
+    &--less-padding { padding: 2rem 0 }
     &--dark {
         background-color: #111;
         color: #FFF;
