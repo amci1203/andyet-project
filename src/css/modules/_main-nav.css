@@ -42,8 +42,8 @@
     }
   }
 }
-.main-nav {
-  @mixin isSmall {
+@mixin isSmall {
+  .main-nav {
     height: 40px;
     &__heading {
       font-size: 1.25rem;
@@ -75,7 +75,7 @@
         padding-right: 7px;
       }
       a {
-        transition: background-color 0.3s ease-out;
+        transition: background-color 0.15s ease-out;
         display: block;
         width: $mobileNavWidth;
         height: auto;
