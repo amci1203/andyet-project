@@ -1,0 +1,90 @@
+.accordion {
+    overflow: hidden;
+
+    .accordion-panel {
+        position: relative;
+        transition: all 0.3s ease-out;
+
+        &__heading {
+            position: relative;
+            z-index: 15;
+            font-size: 1.2rem;
+            padding-right: 25px;
+            margin-bottom: 2px;
+            border-bottom: 1px solid #111;
+            transition: all .6s;
+            cursor: pointer;
+
+            span {
+              font-weight: 200;
+              &::before { content: ' (' }
+              &::after { content: ')' }
+            }
+        }
+        &__always-shown {
+            position: relative;
+            z-index: 15;
+        }
+
+        &__caret {
+            @media only print { display: none }
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            right: 5px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 10px 17.3px 10px;
+            border-color: transparent transparent $mainPink transparent;
+            text-align: center;
+            font-weight: 700;
+            transform: rotate(-180deg);
+            transition: all 0.3s ease-in;
+
+            &.open {
+                transform: rotate(0);
+            }
+
+        }
+        &__trigger {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &__content {
+            padding: 0 20px 0 5px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all .6s;
+            line-height: 1.35;
+
+            &.open {
+                max-height: 1500px;
+                padding: 0 20px 20px 20px;
+                &.no-padding { padding: 0 0 20px 0 }
+            }
+
+            @media only print {
+                position: relative;
+                max-height: 1000px;
+                z-index: 10;
+                opacity: 1;
+                line-height: normal;
+            }
+
+            &__heading {
+                margin: 0;
+                font-weight: normal;
+                span { font-weight: 600 }
+            }
+
+            & > ul {
+                margin-top: 3px;
+                @media only print { margin-top: 0 }
+            }
+        }
+    }
+
+}
