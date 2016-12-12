@@ -15,11 +15,12 @@
       }
       &.active {
        background-color: $mainPink;
+       border-bottom: 1px solid #333;
        color: #FFF;
       }
     }
   }
   &__content {
-    
+
   }
 }

@@ -25,6 +25,7 @@ export default class main extends React.Component {
         </div>
         <About />
         <section className='page-section page-section--blue'>
+          <h1 className='section-title'>Skills & Qualifications</h1>
           <Tabs>
             <Qualifications title='Qualifications'/>
             <Skills title='Skills'/>

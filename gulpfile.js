@@ -16,7 +16,7 @@ gulp.task('transpileJs', () => {
   webpack(require('./webpack.config.js'), function (err, stats) {
   if (err) {
     console.log(err.toString());
-  }
+  } else
     console.log('Script Packing Done...\n');
   })
 })
