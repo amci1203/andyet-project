@@ -18,7 +18,7 @@ a {
 .text-center p {
     text-align: center;
 }
-p, q {
+p, q, ul li {
     font-weight: 300;
     line-height: 1.65;
     margin: 0 0 1.5rem 0;

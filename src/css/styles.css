@@ -18,6 +18,7 @@
     @import 'modules/_pull';
     @import 'modules/_row';
     @import 'modules/_section-title';
+    @import 'modules/_tabs';
     @import 'modules/_wrapper';
 /* RESPONSIVE GRID SYSTEM */
     @import 'grid/col';

@@ -1,0 +1,25 @@
+.tabs {
+  &__list {
+    margin: 0;
+    li {
+      @mixin clickable;
+      list-style-type: none;
+      display: inline-block;
+      width: 150px;
+      padding: 20px 10px;
+      border-radius: 10px;
+      margin-right: 15px;
+      &:hover {
+        padding: 18px 8px;
+        border: 2px solid $mainPink;
+      }
+      &.active {
+       background-color: $mainPink;
+       color: #FFF;
+      }
+    }
+  }
+  &__content {
+    
+  }
+}
