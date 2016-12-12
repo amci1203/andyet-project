@@ -18,10 +18,10 @@
     @import 'modules/_pull';
     @import 'modules/_row';
     @import 'modules/_section-title';
-    @import 'modules/_tabs';
     @import 'modules/_wrapper';
 /* COMPONENTS */
   @import 'modules/_accordion';
+  @import 'modules/_tabs';
 /* RESPONSIVE GRID SYSTEM */
     @import 'grid/col';
     @import 'grid/2cols';
