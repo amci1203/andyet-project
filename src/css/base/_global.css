@@ -15,8 +15,12 @@ a {
     color: inherit;
 }
 
-.text-center p {
+.text-center {
     text-align: center;
+}
+
+.text-center-force {
+    text-align: center !important;
 }
 p, q, ul li, ol li {
     font-weight: 300;
@@ -81,4 +85,9 @@ p > a {
 }
 .invisible {
     visibility: hidden;
+}
+
+.center-block {
+  margin-left:  auto;
+  margin-right: auto;
 }

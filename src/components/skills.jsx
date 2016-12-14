@@ -11,29 +11,30 @@ export default function Skills (props) {
       </Panel>
       <Panel title=" completely comfortable and confident with CSS, including the use of preprocessors such as Sass, Less, Stylus, or PostCSS." score="10">
         <p>
-          I use either LESS or PostCSS for my projects (this is the latter, I personally didn't have the patience to bother with trying to get PostCSS to play nice with React's CSS injection). SASS is fundamentally different from LESS despite not seeming so, but they still are pretty similar and it's not hard at all to pick up one once you know the other. I've looked at stylus (just while writing this), and at first glance it seems Stylus is to CSS as Pug is to HTML--I could se myself trying it out.
+          I use either LESS or PostCSS for my projects, including this one (I personally didn't have the patience to bother with trying to get PostCSS to play nice with React's CSS injection). SASS is fundamentally different from LESS despite not seeming so, but they still are pretty similar and it's not hard at all to pick up one once you know the other. I've looked at stylus (just while writing this), and at first glance it seems Stylus is to CSS as Pug is to HTML--I could see myself trying it out.
         </p>
       </Panel>
       <Panel title="You're very at home with frontend Javascript..." score="10">
         <p>
           I'd think anybody would be hard pressed to find a javascript developer that <em>isn't</em> comfortable with the frontend. It would be like the opposite of being surprised to see your teacher anywhere but school--javascript was born and raised on the frontend; I believe that anybody who calls themself a javascript developer should at least know the basics of vanilla javascript.
           <br />
-          I made this in React, so there's that. Simple, I know, but it's a nice start. And once I' done with this, I'll get to that React+Flux Udemy course like I've wanted to and really learn my stuff. I've never used a clientside MVC, but I work across the stack, so I'm sure I can understand how to make stuff happen without too much effort.
+          I made this in React, so there's that. Simple, I know, but it's a nice start. And once I'm done with this, I'll get to that React+Flux Udemy course like I've wanted to for a while. I've never used a clientside MVC, but I work across the stack, so I'm sure I can understand how to make stuff happen without too much effort.
         </p>
       </Panel>
       <Panel title="You’re comfortable with backend JS and you've built something with Node.js." score='8'>
         <p>
-          I'm not as good as I want to be just yet, but I can work in the backend almost equally as good as the front. I haven't mastered using fs methods, but I can use express or hapi to build an API with relative ease by now.
+          I can work in the backend almost equally as good as the front. I haven't mastered leveraging fs methods, but I can carry out DB operations and use express or hapi to build an API with relative ease by now.
         </p>
       </Panel>
       <Panel title="You know Git and the command line well." score="8">
         <p>
-          I know and appreciate the utility and importance of git. I'm getting better at actually using branches and the like effectively too. I use mainly GUI tools like the Brackets-Git extension, but since I basically was forced to switch to Atom for React based apps, I've decided to just use the command line--I know the git and bash commands and am growing more and more comfortable with CLI tools, but I'm admittedly still a more GUI guy when the option is available.
+          I know and appreciate the utility and importance of git. I'm getting better at actually using branches and the like effectively too. I use mainly GUI tools like the Brackets-Git extension, but since I basically was forced to switch to Atom for React based apps, I've decided to just use the command line--I know the git and bash commands and am growing more and more comfortable with CLI tools, but I admittedly still prefer GUI tools when the option is available
         </p>
       </Panel>
       <Panel title="You are always eager to learn how to write more secure code." score="10">
         <p>
-          Again, if there's anybody who isn't 100% down for this, I'm confused. And again again, I LOVE my sanity very much-- <code>let eager = () => if (moreSecure === lessFixes) return true</code>
+          Again, if there's anybody who isn't 100% down for this, I'm confused. And again again, I LOVE my sanity very much<br />
+          <code>const eager = moreSecure === lessFixes ? true : false </code>
         </p>
       </Panel>
       <Panel title="You've worked in a web framework or two—like Rails, Node.js, Django." score="7">

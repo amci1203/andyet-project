@@ -9,13 +9,14 @@ import Why from './components/why-section.jsx';
 import About from './components/about.jsx';
 import Qualifications from './components/qualifications.jsx';
 import Skills from './components/skills.jsx';
+import Notes from './components/notes.jsx';
 
 export default class main extends React.Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
   }
 
-  render (props) {
+  render () {
     return(
       <div>
         <MainNav candidateName='Allen McIntosh II' />
@@ -25,12 +26,14 @@ export default class main extends React.Component {
         </div>
         <About />
         <section className='page-section page-section--blue'>
+          <a name='skills' />
           <h1 className='section-title'>Skills & Qualifications</h1>
           <Tabs>
             <Qualifications title='Qualifications'/>
             <Skills title='Skills'/>
           </Tabs>
         </section>
+        <Notes />
       </div>
     )
   }

@@ -20,7 +20,12 @@ export class Panel extends React.Component {
           { this.props.title }<span>{ this.props.score }</span>
         </h1>
         <span className={'accordion-panel__caret ' + this.state.open} />
-        <div className={'accordion-panel__content ' + this.state.open}>{ this.props.children }</div>
+        <div
+          className={'accordion-panel__content ' + this.state.open}
+          onClick={() => this.togglePanel() }
+        >
+          { this.props.children }
+        </div>
       </article>
     )
   }

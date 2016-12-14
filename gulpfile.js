@@ -18,6 +18,7 @@ gulp.task('transpileJs', () => {
     console.log(err.toString());
   } else
     console.log('Script Packing Done...\n');
+    console.log(stats.toString());
   })
 })
 
