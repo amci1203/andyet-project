@@ -4,6 +4,7 @@ export default class Links extends React.Component {
   constructor (props) {
     super(props)
   }
+
   render () {
     const links = this.props.links.map((item, index) => {
       return (

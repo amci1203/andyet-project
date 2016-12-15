@@ -9,6 +9,7 @@ import Why from './components/why-section.jsx';
 import About from './components/about.jsx';
 import Qualifications from './components/qualifications.jsx';
 import Skills from './components/skills.jsx';
+import Contacts from './components/contacts.jsx';
 import Notes from './components/notes.jsx';
 
 export default class main extends React.Component {
@@ -33,6 +34,7 @@ export default class main extends React.Component {
             <Skills title='Skills'/>
           </Tabs>
         </section>
+        <Contacts />
         <Notes />
       </div>
     )

@@ -86,7 +86,11 @@
 
 	var _skills2 = _interopRequireDefault(_skills);
 
-	var _notes = __webpack_require__(190);
+	var _contacts = __webpack_require__(190);
+
+	var _contacts2 = _interopRequireDefault(_contacts);
+
+	var _notes = __webpack_require__(191);
 
 	var _notes2 = _interopRequireDefault(_notes);
 
@@ -137,6 +141,7 @@
 	            _react2.default.createElement(_skills2.default, { title: 'Skills' })
 	          )
 	        ),
+	        _react2.default.createElement(_contacts2.default, null),
 	        _react2.default.createElement(_notes2.default, null)
 	      );
 	    }
@@ -22497,6 +22502,121 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = Contacts;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function Contacts(props) {
+	  return _react2.default.createElement(
+	    'section',
+	    { className: 'page-section page-section--pink' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'wrapper' },
+	      _react2.default.createElement('a', { name: 'contacts' }),
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'section-title' },
+	        'Contacts'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'In my communication arsenal, I have a Twitter, a GitHub account, a cell phone and an email address. I\'ll just leave those here in both icons and a regular list. Aaaaannnnd... that\'s pretty much it for here.'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'my-contacts section group' },
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'col span_2_of_3' },
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Twitter: ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://twitter.com/doubleAM2' },
+	              '@doubleAM'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Github:  ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/amci1203' },
+	              'amci203'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Email:   ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'mailto:me@allen-mcintoshii.com' },
+	              'me@allen-mcintoshii.com'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Phone:   ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'tel:12424413229' },
+	              '1 (242) 441-3229'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col span_1_of_3' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'social-icons text-center-force' },
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://twitter.com/doubleAM2', target: '_blank', className: 'social-icons__icon' },
+	              _react2.default.createElement('img', { src: 'img/twitter.svg', className: 'twitter icon' })
+	            ),
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/amci1203', target: '_blank', className: 'social-icons__icon' },
+	              _react2.default.createElement('img', { src: 'img/github.svg', className: 'github icon' })
+	            ),
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'mailto:me@allen-mcintoshii.com', target: '_blank', className: 'social-icons__icon' },
+	              _react2.default.createElement('img', { src: 'img/mail.svg', className: 'icon mail' })
+	            ),
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'tel:12424413229', target: '_blank', className: 'social-icons__icon' },
+	              _react2.default.createElement('img', { src: 'img/phone.svg', className: 'phone icon' })
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
+	}
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.default = Notes;
 
 	var _react = __webpack_require__(1);
@@ -22525,31 +22645,25 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Anyways, I can be found on twitter and github. I don\'t really do anything else; I\'m not all that social online. I\'m an open book in person, but prefer to remain conservative about what I give to the entire world about me.'
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'social-icons text-center-force' },
+	        'Anyways, I can be found on ',
 	        _react2.default.createElement(
 	          'a',
-	          { href: 'https://github.com/amci1203', className: 'social-icons__icon' },
-	          _react2.default.createElement('img', { src: 'img/github.svg', className: 'icon' })
+	          { href: 'https://twitter.com/doubleAM2' },
+	          'twitter'
 	        ),
-	        _react2.default.createElement(
-	          'a',
-	          { href: 'https://twitter.com/doubleAM2', className: 'social-icons__icon colored circle' },
-	          _react2.default.createElement('img', { src: 'img/twitter.svg', className: 'icon' })
-	        )
+	        ' and ',
+	        _react2.default.createElement('a', { href: 'https://github.com/amci1203' }),
+	        '. I don\'t really do anything else; I\'m not all that social online. I\'m an open book in person, but prefer to remain conservative about what I give to the entire world about me.'
 	      ),
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Concerning your question about one thing I\'d like to learn, I have plenty. But one can I can really point to without much thought is C. I\'ve always read articles that said to start out with C because it\'ll give you a pretty solid foundation, and from what I\'ve heard about it I can understand those authors\' point. The lowest leveled language I\'ve worked with is Java, if that even counts as low-level; I want to try my hand at coding like it\'s the 80s (Earlier? Later? I don\'t know, it\'s been around so long). I\'m definitely not interested in trying Assembly Language or anything of that sort, but I really would like to (kinda) master C one day.'
+	        'Concerning your question about one thing I\'d like to learn, I have plenty. But one can I can really point to without much thought is C. I\'ve always read articles that said to start out with C because it\'ll give you a pretty solid foundation, and from what I\'ve heard about it I can understand those authors\' point. The lowest leveled language I\'ve worked with is Java, if that even counts as low-level; I want to try my hand at coding like it\'s the 80s (Earlier? Later? I don\'t know, it\'s been around so long). I\'m definitely not interested in trying Assembly Language or anything of that sort, but I really would like to (at least kinda) master C one day.'
 	      ),
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Well, I guess, this is the end of this little project. I\'d just like to say thank you for giving me the oppurtunity to try this out, I enjoyed making it and I hope you enjoy reading it. Thanks for having such an inviting job posting without sounding like a complete bs factory, I appreciate things like that. Well, I\'l be here working and improving--I await your honest response.'
+	        'Well, I guess, this is the end of this little project. I\'d just like to say thank you for giving me the oppurtunity to try this out, I enjoyed making it and I hope you enjoy reading it. Thanks for having such an inviting job posting without sounding like a complete bs factory, I appreciate things like that. Well, I\'l be here working (seriously, I had to stop myself from attempting to add more features to this alone) and improving--I await your honest response.'
 	      ),
 	      _react2.default.createElement(
 	        'p',

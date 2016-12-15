@@ -1,0 +1,15 @@
+.my-contacts {
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style-type: none;
+    @mixin isSmall { text-align: center }
+  }
+  a {
+    @mixin isSmall { text-align: center }
+    @mixin noTextDecoration;
+    font-weight: 600;
+  }
+}
