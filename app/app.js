@@ -21717,7 +21717,7 @@
 	    value: function handleWheel(event) {
 	      var direction = event.deltaY > 0 ? 'down' : 'up',
 	          newState = direction === 'down' ? 'invisible' : 'visible';
-	      this.setState({ isVisible: newState });
+	      if (this.state.isOpen !== 'open') this.setState({ isVisible: newState });
 	    }
 	  }, {
 	    key: 'componentDidMount',
@@ -21754,7 +21754,7 @@
 	            'div',
 	            { className: 'main-nav__nav-links ' },
 	            _react2.default.createElement(_navLinks2.default, {
-	              links: ['about', 'skills', 'contacts'],
+	              links: ['about', 'skills', 'contacts', 'notes'],
 	              click: function click() {
 	                return _this2.handleLink.bind(_this2, _this2.state.isOpen);
 	              }
@@ -22019,7 +22019,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'My reason is simple, really. You guys said you wanted somebody who can use React + Redux--I\'ve never used them before and was looking for an excuse to try it out--what better time than now? With that said, I\'d like to say thank you for giving me something tangible to try out React on. And I\'m glad I did this, because I\'ve learned and surmounted the greatest task of setting up Webpack properly for React development after a few hours of googling and trying, and this was a fun exercise for myself.'
+	        'My reason is simple, really. You guys said you wanted somebody who can use React + Redux--I\'ve never used them before and was looking for an excuse to try it out anyways--what better time than now? With that said, I\'d like to say thank you for giving me something tangible to try out React on. And I\'m glad I did this, because I\'ve learned plenty, and getting things to work in a \'pure\' way was a welcome challenge. Thanks again, and without further ado...'
 	      )
 	    )
 	  );
@@ -22081,7 +22081,7 @@
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'My full name is Allen Alexander McIntosh II. I was born and raised in The Bahamas on the capital island of New Providence (known to everyone as Nassau). I enjoy playing video games, a nice game or ten of basketball, and I love dearly and dislike objectively. I started taking programming seriously only a year ago now. Before then, I learnt HTML & CSS and tried a dash of Javascript, but I didn\'t really try to do anything. I also learnt Java in school too, but wasn\'t interested in doing anything that wasn\'t my homework. It was only after I decided to leave school (and by extension my girlfriend\'s physical company) and went back home that I decided to really buckle down and put my game face on--my, how time flies. I have a hard time believing it\'s only been that long when I think about all the stuff I\'ve learnt in that time.'
+	            'My full name is Allen Alexander McIntosh II. I was born and raised in The Bahamas on the capital island of New Providence (known to everyone as Nassau). I enjoy playing video games, a nice game or ten of basketball, and I love dearly and dislike objectively. I started taking programming seriously only a year ago now. I knew how to program a bit before then, but I didn\'t really try to do anything that wasn\'t homework. It was only after I decided to leave school (and by extension my girlfriend\'s physical company) and went back home that I decided to really buckle down and put my game face on--my, how time flies. I have a hard time believing it\'s only been that long when I think about all the stuff I\'ve learnt in that time.'
 	          ),
 	          _react2.default.createElement(
 	            'p',
@@ -22141,7 +22141,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'I try to avoid the \'looking dumb\' and failing parts by doing whatever I can to avoid being wrong, which includes asking questions, doing my research, and shutting up when I\'m not sure. But it does happen, and I take my lesson like a man when it does. The more I code, the more I become comfortable  with taking risks because I become better at finding errors, and the more I realize that every new feature is a risk in itself.'
+	        'I try to avoid the \'looking dumb\' and failing parts by doing whatever I can to avoid being wrong, which includes asking questions, doing my research, and shutting up when I\'m not sure. But it does happen, and I take my lesson like a man when it does. I still don\'t like it, but I\'ve been becoming  more okay with being wrong and taking risks as I age.'
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -22404,10 +22404,10 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'I prefer practical over pretty. Function and comfort are very sexy if you ask me--which is why I could never understand women\'s fashion (I\'m looking at you pocketless jeans). I prefer to appeal to people who can agree with me because they will always be easier to please if you ask me. Bells and whistles make no sense if you have no idea how to do anything or nothing works. ',
+	        'I prefer practical over pretty. Function and comfort are very sexy if you ask me--which is why I could never understand women\'s fashion (I\'m looking at you pocketless jeans). I prefer to appeal to people who can agree with me because they will always be easier to please if you ask me. Bells and whistles make no sense if you have no idea how to do anything or nothing works as it should. ',
 	        _react2.default.createElement(
 	          'a',
-	          { href: 'https://en.wikipedia.org/wiki/Steel_Battalion' },
+	          { target: '_blank', href: 'https://en.wikipedia.org/wiki/Steel_Battalion' },
 	          'Take this for example'
 	        ),
 	        '.'
@@ -22445,7 +22445,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'I can work in the backend almost equally as good as the front. I haven\'t mastered leveraging fs methods, but I can carry out DB operations and use express or hapi to build an API with relative ease by now.'
+	        'I can work in the backend almost equally as good as the front. I haven\'t mastered leveraging fs methods, but I can carry out DB operations and build an API with relative ease by now. I\'ve only used Hapi once; I work with Express.'
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -22468,7 +22468,9 @@
 	        _react2.default.createElement(
 	          'code',
 	          null,
-	          'const eager = moreSecure === lessFixes ? true : false '
+	          'const eager = moreSecure === lessFixes ? true : false; ',
+	          _react2.default.createElement('br', null),
+	          'console.log(eager)  // true'
 	        )
 	      )
 	    ),
@@ -22526,7 +22528,13 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'In my communication arsenal, I have a Twitter, a GitHub account, a cell phone and an email address. I\'ll just leave those here in both icons and a regular list. Aaaaannnnd... that\'s pretty much it for here.'
+	        'In my communication arsenal, I have a Twitter, a GitHub account, a cell phone and an email address. I\'ll just leave those here in both icons and a regular list. ',
+	        _react2.default.createElement(
+	          'em',
+	          null,
+	          'And...'
+	        ),
+	        ' that\'s pretty much it for here.'
 	      ),
 	      _react2.default.createElement(
 	        'div',
@@ -22540,7 +22548,7 @@
 	            'Twitter: ',
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'https://twitter.com/doubleAM2' },
+	              { target: '_blank', href: 'https://twitter.com/doubleAM2' },
 	              '@doubleAM'
 	            )
 	          ),
@@ -22550,7 +22558,7 @@
 	            'Github:  ',
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'https://github.com/amci1203' },
+	              { target: '_blank', href: 'https://github.com/amci1203' },
 	              'amci203'
 	            )
 	          ),
@@ -22593,12 +22601,12 @@
 	            ),
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'mailto:me@allen-mcintoshii.com', target: '_blank', className: 'social-icons__icon' },
+	              { href: 'mailto:me@allen-mcintoshii.com', className: 'social-icons__icon' },
 	              _react2.default.createElement('img', { src: 'img/mail.svg', className: 'icon mail' })
 	            ),
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'tel:12424413229', target: '_blank', className: 'social-icons__icon' },
+	              { href: 'tel:12424413229', className: 'social-icons__icon' },
 	              _react2.default.createElement('img', { src: 'img/phone.svg', className: 'phone icon' })
 	            )
 	          )
@@ -22632,6 +22640,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'wrapper' },
+	      _react2.default.createElement('a', { name: 'notes' }),
 	      _react2.default.createElement(
 	        'h1',
 	        { className: 'section-title' },
@@ -22640,35 +22649,55 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Well...this was certainly a first for me on several levels. I\'m just glad that I can say that I did enjoy doing this--even if it ends up being for nothing, I learned something, and that\'s something in itself.'
+	        'Well, this was certainly a first for me on several levels. I\'m just glad that I can say that I did enjoy doing this--even if it ends up being for nothing, I learned something, and that\'s something in itself.'
 	      ),
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Anyways, I can be found on ',
+	        'If you\'d like some direct links to any of my projects, you can check out my website. I have a section there for that purpose ',
 	        _react2.default.createElement(
 	          'a',
-	          { href: 'https://twitter.com/doubleAM2' },
-	          'twitter'
-	        ),
-	        ' and ',
-	        _react2.default.createElement('a', { href: 'https://github.com/amci1203' }),
-	        '. I don\'t really do anything else; I\'m not all that social online. I\'m an open book in person, but prefer to remain conservative about what I give to the entire world about me.'
+	          { href: 'http://allen-mcintoshii.com#projects', target: '_blank' },
+	          'here'
+	        )
 	      ),
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Concerning your question about one thing I\'d like to learn, I have plenty. But one can I can really point to without much thought is C. I\'ve always read articles that said to start out with C because it\'ll give you a pretty solid foundation, and from what I\'ve heard about it I can understand those authors\' point. The lowest leveled language I\'ve worked with is Java, if that even counts as low-level; I want to try my hand at coding like it\'s the 80s (Earlier? Later? I don\'t know, it\'s been around so long). I\'m definitely not interested in trying Assembly Language or anything of that sort, but I really would like to (at least kinda) master C one day.'
+	        'Concerning your question about one thing I\'d like to learn, I have plenty. But one that I can really point to without much thought is C. I\'ve always read articles that said to start out with C because it\'ll give you a pretty solid foundation, and from what I\'ve heard about it I can understand those authors\' point. The lowest leveled language I\'ve worked with is Java, if that even counts as low-level; I want to try my hand at coding like it\'s the 80s (Earlier? Later? I don\'t know, it\'s been around so long). I\'m definitely not interested in trying Assembly Language or anything of that sort, but I really would like to (at least kinda) master C one day.'
 	      ),
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Well, I guess, this is the end of this little project. I\'d just like to say thank you for giving me the oppurtunity to try this out, I enjoyed making it and I hope you enjoy reading it. Thanks for having such an inviting job posting without sounding like a complete bs factory, I appreciate things like that. Well, I\'l be here working (seriously, I had to stop myself from attempting to add more features to this alone) and improving--I await your honest response.'
+	        'Well, I guess, this is the end of this little project. I\'d just like to say thank you for giving me the oppurtunity to try this out, I enjoyed making it and I hope you enjoy going through it. It\'s not perfect, and I accept that (otherwise you\'d never see this), but I guess the fact is that I\'ll never be perfect, and that\'s okay (why refactoring is a continuous process). Thanks for having such an inviting job posting without sounding like a complete bs factory, I appreciate things like that. Well, I\'l be here working (seriously, I had to stop myself from attempting to add more features to this) and improving--I await your honest response.'
 	      ),
 	      _react2.default.createElement(
 	        'p',
 	        null,
 	        'Oh, and I\'m a medium in men\'s :)'
+	      ),
+	      _react2.default.createElement(
+	        'address',
+	        null,
+	        'Apex International',
+	        _react2.default.createElement('br', null),
+	        '924 NW 1st St # 2',
+	        _react2.default.createElement('br', null),
+	        'Ft Lauderdale FL 33311-8902',
+	        _react2.default.createElement('br', null),
+	        'United States'
+	      )
+	    ),
+	    _react2.default.createElement('br', null),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'text-center' },
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Sincerely:',
+	        _react2.default.createElement('br', null),
+	        'Allen McIntosh II'
 	      )
 	    )
 	  );

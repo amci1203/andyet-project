@@ -11,7 +11,7 @@ export default function Qualifications (props) {
       </Panel>
       <Panel title="You're willing to ask questions, look dumb, be wrong, take risks, and fail." score="7" >
         <p>
-          I try to avoid the 'looking dumb' and failing parts by doing whatever I can to avoid being wrong, which includes asking questions, doing my research, and shutting up when I'm not sure. But it does happen, and I take my lesson like a man when it does. The more I code, the more I become comfortable  with taking risks because I become better at finding errors, and the more I realize that every new feature is a risk in itself.
+          I try to avoid the 'looking dumb' and failing parts by doing whatever I can to avoid being wrong, which includes asking questions, doing my research, and shutting up when I'm not sure. But it does happen, and I take my lesson like a man when it does. I still don't like it, but I've been becoming  more okay with being wrong and taking risks as I age.
         </p>
       </Panel>
       <Panel title="You take way more of your share of blame and give way more than your share of credit." score="10">

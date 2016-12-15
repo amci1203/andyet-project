@@ -59,10 +59,10 @@ p > a {
 .page-lock { overflow-y: hidden !important; }
 .page-lock .page-shadow {
   position: fixed;
-  z-index: 200 !important;
+  z-index: 100;
   display: block;
   top: 0; bottom: 0; left: 0; right: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(25, 25, 25, 0.6);
 }
 
 .no-text-decoration {

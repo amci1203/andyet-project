@@ -27,7 +27,7 @@ export default class MainNav extends React.Component {
   handleWheel(event) {
     let direction = event.deltaY > 0 ? 'down' : 'up',
         newState = direction === 'down' ? 'invisible' : 'visible';
-    this.setState({isVisible: newState});
+    if (this.state.isOpen !== 'open') this.setState({isVisible: newState});
   }
 
   componentDidMount() {
@@ -45,7 +45,7 @@ export default class MainNav extends React.Component {
           </button>
           <div className='main-nav__nav-links '>
             <Links
-              links={['about', 'skills', 'contacts']}
+              links={['about', 'skills', 'contacts', 'notes']}
               click={() => this.handleLink.bind(this, this.state.isOpen)}
             />
           </div>

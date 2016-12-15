@@ -6,7 +6,7 @@ export default function Skills (props) {
     <Accordion>
       <Panel title="...you love to build is simple and clear design that works well and is visually minimalistic." score="10">
         <p>
-          I prefer practical over pretty. Function and comfort are very sexy if you ask me--which is why I could never understand women's fashion (I'm looking at you pocketless jeans). I prefer to appeal to people who can agree with me because they will always be easier to please if you ask me. Bells and whistles make no sense if you have no idea how to do anything or nothing works. <a href='https://en.wikipedia.org/wiki/Steel_Battalion'>Take this for example</a>.
+          I prefer practical over pretty. Function and comfort are very sexy if you ask me--which is why I could never understand women's fashion (I'm looking at you pocketless jeans). I prefer to appeal to people who can agree with me because they will always be easier to please if you ask me. Bells and whistles make no sense if you have no idea how to do anything or nothing works as it should. <a target='_blank' href='https://en.wikipedia.org/wiki/Steel_Battalion'>Take this for example</a>.
         </p>
       </Panel>
       <Panel title=" completely comfortable and confident with CSS, including the use of preprocessors such as Sass, Less, Stylus, or PostCSS." score="10">
@@ -23,7 +23,7 @@ export default function Skills (props) {
       </Panel>
       <Panel title="You’re comfortable with backend JS and you've built something with Node.js." score='8'>
         <p>
-          I can work in the backend almost equally as good as the front. I haven't mastered leveraging fs methods, but I can carry out DB operations and use express or hapi to build an API with relative ease by now.
+          I can work in the backend almost equally as good as the front. I haven't mastered leveraging fs methods, but I can carry out DB operations and build an API with relative ease by now. I've only used Hapi once; I work with Express.
         </p>
       </Panel>
       <Panel title="You know Git and the command line well." score="8">
@@ -34,7 +34,10 @@ export default function Skills (props) {
       <Panel title="You are always eager to learn how to write more secure code." score="10">
         <p>
           Again, if there's anybody who isn't 100% down for this, I'm confused. And again again, I LOVE my sanity very much<br />
-          <code>const eager = moreSecure === lessFixes ? true : false </code>
+          <code>
+            const eager = moreSecure === lessFixes ? true : false; <br />
+            console.log(eager)  // true
+          </code>
         </p>
       </Panel>
       <Panel title="You've worked in a web framework or two—like Rails, Node.js, Django." score="7">

@@ -4,13 +4,14 @@
     .accordion-panel {
         position: relative;
         transition: all 0.3s ease-out;
+        margin-bottom: 15px;
         &__heading {
             position: relative;
             z-index: 15;
             font-size: 1.35rem;
             font-weight: 400;
             @mixin isSmall {
-              font-size: 1.15rem;
+              font-size: 1.05rem;
               font-weight: 400;
             }
             padding-right: 25px;
@@ -62,8 +63,10 @@
             overflow: hidden;
             transition: all .6s;
             line-height: 1.35;
-            &::selection {
-              background: #FFF;
+            @mixin clickable;
+
+            code {
+              font-size: 1rem;
             }
 
             &.open {
