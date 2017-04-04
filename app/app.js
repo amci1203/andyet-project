@@ -66,31 +66,31 @@
 
 	var _mainNav2 = _interopRequireDefault(_mainNav);
 
-	var _mainHeader = __webpack_require__(184);
+	var _mainHeader = __webpack_require__(185);
 
 	var _mainHeader2 = _interopRequireDefault(_mainHeader);
 
-	var _whySection = __webpack_require__(185);
+	var _whySection = __webpack_require__(186);
 
 	var _whySection2 = _interopRequireDefault(_whySection);
 
-	var _about = __webpack_require__(186);
+	var _about = __webpack_require__(187);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _qualifications = __webpack_require__(187);
+	var _qualifications = __webpack_require__(188);
 
 	var _qualifications2 = _interopRequireDefault(_qualifications);
 
-	var _skills = __webpack_require__(189);
+	var _skills = __webpack_require__(190);
 
 	var _skills2 = _interopRequireDefault(_skills);
 
-	var _contacts = __webpack_require__(190);
+	var _contacts = __webpack_require__(191);
 
 	var _contacts2 = _interopRequireDefault(_contacts);
 
-	var _notes = __webpack_require__(191);
+	var _notes = __webpack_require__(192);
 
 	var _notes2 = _interopRequireDefault(_notes);
 
@@ -139,6 +139,18 @@
 	            null,
 	            _react2.default.createElement(_qualifications2.default, { title: 'Qualifications' }),
 	            _react2.default.createElement(_skills2.default, { title: 'Skills' })
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            {
+	              id: 'question-push-down',
+	              className: 'text-center'
+	            },
+	            _react2.default.createElement(
+	              'small',
+	              null,
+	              '*Which style do you prefer?*'
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(_contacts2.default, null),
@@ -21676,6 +21688,10 @@
 
 	var _lodashCustom2 = _interopRequireDefault(_lodashCustom);
 
+	var _scrollHandle = __webpack_require__(184);
+
+	var _scrollHandle2 = _interopRequireDefault(_scrollHandle);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21696,11 +21712,7 @@
 	      isOpen: "close",
 	      isVisible: 'visible'
 	    };
-	    // used by handleScroll()
-	    _this.prevScroll = 0;
-	    _this.prevDirection = 'down';
-	    _this.consecutives = 0;
-	    _this.requiredConsecutives = 2;
+	    _this.scroll = (0, _scrollHandle2.default)(2);
 	    return _this;
 	  }
 
@@ -21720,28 +21732,23 @@
 	  }, {
 	    key: 'handleScroll',
 	    value: function handleScroll(event) {
-	      var scroll = window.scrollY,
-	          direction = scroll > this.prevScroll ? 'down' : 'up',
-	          goesUp = direction == this.prevDirection ? this.consecutives + 1 : 0;
+	      var _this2 = this;
 
-	      this.consecutives = goesUp;
-	      if (this.consecutives == this.requiredConsecutives) {
-	        var newState = direction == 'down' ? 'invisible' : 'visible';
-	        if (this.state.isOpen != 'open') this.setState({ isVisible: newState });
-	      } else this.prevDirection = direction;
-
-	      this.prevScroll = scroll;
+	      this.scroll(function (dir) {
+	        var newState = dir == 'down' ? 'invisible' : 'visible';
+	        if (_this2.state.isOpen != 'open') _this2.setState({ isVisible: newState });
+	      });
 	    }
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      window.addEventListener('scroll', _lodashCustom2.default.throttle(this.handleScroll.bind(this), 100));
+	      window.addEventListener('scroll', _lodashCustom2.default.throttle(this.handleScroll.bind(this), 150));
 	      if (window.scrollY > 50) this.setState({ isVisible: 'invisible' });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render(props) {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      return _react2.default.createElement(
 	        'nav',
@@ -21769,7 +21776,7 @@
 	            _react2.default.createElement(_navLinks2.default, {
 	              links: ['about', 'skills', 'contacts', 'notes'],
 	              click: function click() {
-	                return _this2.handleLink.bind(_this2, _this2.state.isOpen);
+	                return _this3.handleLink.bind(_this3, _this3.state.isOpen);
 	              }
 	            })
 	          )
@@ -21956,6 +21963,53 @@
 
 /***/ },
 /* 184 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = _handleScroll;
+	/*
+	    abstracts scroll handling for the nav components
+	    assign this class to the component first, with one argument:
+	        - requiredConsecutives: how many times must the window move in one direction in a row before firing the callback
+	    when ready to use, just call it with a callback that will be passed one arg:
+	        - direction: 'up' || 'down'
+	    this callbak will only fired once the required consecutives is satisfied, so no need to worry about a false being returned to your component
+	*/
+
+	function _handleScroll(_requiredConsecutives) {
+	    var requiredConsecutives = _requiredConsecutives;
+	    var prevScroll = 0,
+	        prevDirection = 'down',
+	        consecutives = 0;
+
+	    if (isNaN(requiredConsecutives)) {
+	        throw new Error('required consecutives is not a number');
+	        return false;
+	    }
+
+	    return function (callback) {
+	        var scroll = window.scrollY,
+	            direction = scroll > prevScroll ? 'down' : 'up',
+	            goesUp = direction == prevDirection ? consecutives + 1 : 0;
+
+	        consecutives = goesUp;
+	        prevScroll = scroll;
+	        console.log(consecutives);
+	        if (consecutives == requiredConsecutives) {
+	            callback(direction);
+	        } else {
+	            prevDirection = direction;
+	            return false;
+	        }
+	    };
+	}
+
+/***/ },
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21995,7 +22049,7 @@
 	}
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22039,7 +22093,7 @@
 	}
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22117,7 +22171,7 @@
 	exports.default = About;
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22131,7 +22185,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _accordion = __webpack_require__(188);
+	var _accordion = __webpack_require__(189);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22293,7 +22347,7 @@
 	}
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22383,7 +22437,7 @@
 	}
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22397,7 +22451,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _accordion = __webpack_require__(188);
+	var _accordion = __webpack_require__(189);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22503,7 +22557,7 @@
 	}
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22624,7 +22678,7 @@
 	}
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22676,7 +22730,13 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Well, I guess, this is the end of this little project. I\'d just like to say thank you for giving me the oppurtunity to try this out, I enjoyed making it and I hope you enjoy going through it. It\'s not perfect, and I accept that (otherwise you\'d never see this), but I guess the fact is that I\'ll never be perfect, and that\'s okay (why refactoring is a continuous process). Thanks for having such an inviting job posting without sounding like a complete bs factory, I appreciate things like that. Well, I\'l be here working (seriously, I had to stop myself from attempting to add more features to this) and improving--I await your honest response.'
+	        'Well, I guess, this is the end of this little project. I\'d just like to say thank you for giving me the oppurtunity to try this out, I enjoyed making it and I hope you enjoy going through it. It\'s not perfect, and I accept that (otherwise you\'d never see this), but I guess the fact is that it\'ll never be ',
+	        _react2.default.createElement(
+	          'em',
+	          null,
+	          'perfect'
+	        ),
+	        ', and that\'s okay (why refactoring is a continuous process). Thanks for having such an inviting job posting without sounding like a complete bs factory, I appreciate things like that. Well, I\'l be here working (seriously, I had to stop myself from attempting to add more features to this) and improving--I await your honest response.'
 	      ),
 	      _react2.default.createElement(
 	        'p',

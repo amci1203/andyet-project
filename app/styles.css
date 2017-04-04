@@ -479,6 +479,10 @@ menu {
   margin-left:  auto;
   margin-right: auto;
 }
+    #question-push-down {
+    position: relative;
+    top: 4.5rem;
+}
     /* ASSURED SINGLE USE */
     /* body-padding placed at bottom of this file, seeing as it concerns the navbar */
     .main-nav {
@@ -1140,6 +1144,7 @@ menu {
     .accordion .accordion-panel {
   position: relative;
   transition: all 0.3s ease-out;
+  color: #222;
 }
     .accordion .accordion-panel__heading {
   position: relative;
@@ -1207,7 +1212,7 @@ menu {
   bottom: -15px;
   right: 50%;
   border-style: solid;
-  border-color: transparent transparent #FFF transparent;
+  border-color: transparent transparent #333 transparent;
   font-weight: 700;
   transform: translateX(50%) rotate(-180deg);
   border-width: 0 5px 8.65px 5px;
@@ -1286,6 +1291,7 @@ menu {
 }
     .accordion--translucent .accordion-panel__caret {
   bottom: 0;
+  border-color: transparent transparent #FFF transparent;
 }
     @media (min-width: 768px) {
   .accordion--translucent .accordion-panel__caret {

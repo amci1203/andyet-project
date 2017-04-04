@@ -33,6 +33,12 @@ export default class main extends React.Component {
             <Qualifications title='Qualifications'/>
             <Skills title='Skills'/>
           </Tabs>
+          <p
+            id = 'question-push-down'
+            className = 'text-center'
+          >
+            <small>*Which style do you prefer?*</small>
+          </p>
         </section>
         <Contacts />
         <Notes />

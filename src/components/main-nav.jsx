@@ -2,6 +2,7 @@ import React from 'react';
 import Links from './reusables/nav-links.jsx';
 
 import _ from './helpers/lodash.custom.min';
+import _handleScroll from './helpers/scroll-handle';
 
 export default class MainNav extends React.Component {
   constructor () {
@@ -10,11 +11,7 @@ export default class MainNav extends React.Component {
       isOpen: "close",
       isVisible: 'visible',
     };
-    // used by handleScroll()
-    this.prevScroll    = 0;
-    this.prevDirection = 'down';
-    this.consecutives  = 0;
-    this.requiredConsecutives  = 2;
+    this.scroll = _handleScroll(2);
   }
 
   handleLink(isOpen) {
@@ -30,22 +27,14 @@ export default class MainNav extends React.Component {
   }
 
   handleScroll(event) {
-      const
-        scroll    = window.scrollY,
-        direction = scroll > this.prevScroll ? 'down' : 'up',
-        goesUp    = direction == this.prevDirection ? this.consecutives + 1 : 0;
-
-      this.consecutives = goesUp;
-      if (this.consecutives == this.requiredConsecutives) {
-          const newState = direction == 'down' ? 'invisible' : 'visible';
+      this.scroll(dir => {
+          const newState = dir == 'down' ? 'invisible' : 'visible';
           if (this.state.isOpen != 'open') this.setState({isVisible: newState});
-      } else this.prevDirection = direction;
-
-      this.prevScroll = scroll;
+      });
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', _.throttle(this.handleScroll.bind(this), 100));
+    window.addEventListener('scroll', _.throttle(this.handleScroll.bind(this), 150));
     if (window.scrollY > 50) this.setState({isVisible: 'invisible'})
   }
 

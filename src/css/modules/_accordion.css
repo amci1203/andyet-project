@@ -4,6 +4,7 @@
     .accordion-panel {
         position: relative;
         transition: all 0.3s ease-out;
+        color: #222;
 
         &__heading {
             position: relative;
@@ -65,7 +66,7 @@
             bottom: -15px;
             right: 50%;
             border-style: solid;
-            border-color: transparent transparent #FFF transparent;
+            border-color: transparent transparent #333 transparent;
             font-weight: 700;
             transform: translateX(50%) rotate(-180deg);
             border-width: 0 5px 8.65px 5px;
@@ -124,6 +125,7 @@
             }
             &__caret {
                 bottom: 0;
+                border-color: transparent transparent #FFF transparent;
                 @mixin atMedium { top: 42px; }
             }
             &__trigger {
