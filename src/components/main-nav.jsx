@@ -10,6 +10,11 @@ export default class MainNav extends React.Component {
       isOpen: "close",
       isVisible: 'visible',
     };
+    // used by handleScroll()
+    this.prevScroll    = 0;
+    this.prevDirection = 'down';
+    this.consecutives  = 0;
+    this.requiredConsecutives  = 2;
   }
 
   handleLink(isOpen) {
@@ -24,14 +29,23 @@ export default class MainNav extends React.Component {
     document.documentElement.classList.toggle('page-lock')
   }
 
-  handleWheel(event) {
-    let direction = event.deltaY > 0 ? 'down' : 'up',
-        newState = direction === 'down' ? 'invisible' : 'visible';
-    if (this.state.isOpen !== 'open') this.setState({isVisible: newState});
+  handleScroll(event) {
+      const
+        scroll    = window.scrollY,
+        direction = scroll > this.prevScroll ? 'down' : 'up',
+        goesUp    = direction == this.prevDirection ? this.consecutives + 1 : 0;
+
+      this.consecutives = goesUp;
+      if (this.consecutives == this.requiredConsecutives) {
+          const newState = direction == 'down' ? 'invisible' : 'visible';
+          if (this.state.isOpen != 'open') this.setState({isVisible: newState});
+      } else this.prevDirection = direction;
+
+      this.prevScroll = scroll;
   }
 
   componentDidMount() {
-    window.addEventListener('wheel', _.debounce(this.handleWheel.bind(this), 50, {leading: true, trailing: false}));
+    window.addEventListener('scroll', _.throttle(this.handleScroll.bind(this), 100));
     if (window.scrollY > 50) this.setState({isVisible: 'invisible'})
   }
 

@@ -21696,6 +21696,11 @@
 	      isOpen: "close",
 	      isVisible: 'visible'
 	    };
+	    // used by handleScroll()
+	    _this.prevScroll = 0;
+	    _this.prevDirection = 'down';
+	    _this.consecutives = 0;
+	    _this.requiredConsecutives = 2;
 	    return _this;
 	  }
 
@@ -21713,16 +21718,24 @@
 	      document.documentElement.classList.toggle('page-lock');
 	    }
 	  }, {
-	    key: 'handleWheel',
-	    value: function handleWheel(event) {
-	      var direction = event.deltaY > 0 ? 'down' : 'up',
-	          newState = direction === 'down' ? 'invisible' : 'visible';
-	      if (this.state.isOpen !== 'open') this.setState({ isVisible: newState });
+	    key: 'handleScroll',
+	    value: function handleScroll(event) {
+	      var scroll = window.scrollY,
+	          direction = scroll > this.prevScroll ? 'down' : 'up',
+	          goesUp = direction == this.prevDirection ? this.consecutives + 1 : 0;
+
+	      this.consecutives = goesUp;
+	      if (this.consecutives == this.requiredConsecutives) {
+	        var newState = direction == 'down' ? 'invisible' : 'visible';
+	        if (this.state.isOpen != 'open') this.setState({ isVisible: newState });
+	      } else this.prevDirection = direction;
+
+	      this.prevScroll = scroll;
 	    }
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      window.addEventListener('wheel', _lodashCustom2.default.debounce(this.handleWheel.bind(this), 50, { leading: true, trailing: false }));
+	      window.addEventListener('scroll', _lodashCustom2.default.throttle(this.handleScroll.bind(this), 100));
 	      if (window.scrollY > 50) this.setState({ isVisible: 'invisible' });
 	    }
 	  }, {
@@ -22321,27 +22334,23 @@
 	  _createClass(Panel, [{
 	    key: 'togglePanel',
 	    value: function togglePanel() {
-	      var newState = 'state';
-	      if (this.state.open === 'open') {
-	        newState = false;
-	      } else {
-	        newState = 'open';
-	      }
+	      var newState = this.state.open == 'open' ? false : 'open';
 	      this.setState({ open: newState });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-
 	      return _react2.default.createElement(
 	        'article',
 	        { className: 'accordion-panel' },
+	        _react2.default.createElement('span', {
+	          className: 'accordion-panel__caret ' + this.state.open,
+	          onClick: this.togglePanel.bind(this)
+	        }),
+	        _react2.default.createElement('span', { className: 'accordion-panel__trigger', onClick: this.togglePanel.bind(this) }),
 	        _react2.default.createElement(
 	          'h1',
-	          { className: 'accordion-panel__heading', onClick: function onClick() {
-	              return _this2.togglePanel();
-	            } },
+	          { className: 'accordion-panel__heading' },
 	          this.props.title,
 	          _react2.default.createElement(
 	            'span',
@@ -22349,14 +22358,11 @@
 	            this.props.score
 	          )
 	        ),
-	        _react2.default.createElement('span', { className: 'accordion-panel__caret ' + this.state.open }),
 	        _react2.default.createElement(
 	          'div',
 	          {
 	            className: 'accordion-panel__content ' + this.state.open,
-	            onClick: function onClick() {
-	              return _this2.togglePanel();
-	            }
+	            onClick: this.togglePanel.bind(this)
 	          },
 	          this.props.children
 	        )
@@ -22368,9 +22374,10 @@
 	}(_react2.default.Component);
 
 	function Accordion(props) {
+	  var isTranslucent = props.translucent ? 'accordion--translucent' : false;
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'accordion' },
+	    { className: 'accordion ' + isTranslucent },
 	    props.children
 	  );
 	}
@@ -22397,7 +22404,7 @@
 	function Skills(props) {
 	  return _react2.default.createElement(
 	    _accordion.Accordion,
-	    null,
+	    { translucent: true },
 	    _react2.default.createElement(
 	      _accordion.Panel,
 	      { title: '...you love to build is simple and clear design that works well and is visually minimalistic.', score: '10' },
@@ -22415,7 +22422,7 @@
 	    ),
 	    _react2.default.createElement(
 	      _accordion.Panel,
-	      { title: ' completely comfortable and confident with CSS, including the use of preprocessors such as Sass, Less, Stylus, or PostCSS.', score: '10' },
+	      { title: ' completely comfortable and confident with CSS [and preprocessors]', score: '10' },
 	      _react2.default.createElement(
 	        'p',
 	        null,
@@ -22664,7 +22671,7 @@
 	      _react2.default.createElement(
 	        'p',
 	        null,
-	        'Concerning your question about one thing I\'d like to learn, I have plenty. But one that I can really point to without much thought is C. I\'ve always read articles that said to start out with C because it\'ll give you a pretty solid foundation, and from what I\'ve heard about it I can understand those authors\' point. The lowest leveled language I\'ve worked with is Java, if that even counts as low-level; I want to try my hand at coding like it\'s the 80s (Earlier? Later? I don\'t know, it\'s been around so long). I\'m definitely not interested in trying Assembly Language or anything of that sort, but I really would like to (at least kinda) master C one day.'
+	        'Concerning your question about one thing I\'d like to learn, I have plenty. But one that I can really point to without much thought is C. I\'ve always read articles that said to start out with C because it\'ll give you a pretty solid foundation, and from what I\'ve heard about it I can understand those authors\' point. The lowest leveled language I\'ve worked with is Java, if that even counts as low-level; I want to try my hand at coding like it\'s the 80s (Earlier? Later? I don\'t know, it\'s been around so long). I\'m definitely not interested in trying Assembly Language or anything of that sort, but I really would like to learn C one day.'
 	      ),
 	      _react2.default.createElement(
 	        'p',

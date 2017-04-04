@@ -4,25 +4,42 @@
     .accordion-panel {
         position: relative;
         transition: all 0.3s ease-out;
-        margin-bottom: 15px;
+
         &__heading {
             position: relative;
             z-index: 15;
-            font-size: 1.35rem;
-            font-weight: 400;
-            @mixin isSmall {
-              font-size: 1.05rem;
-              font-weight: 400;
-            }
-            padding-right: 25px;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 35px;
             margin-bottom: 2px;
+            border-bottom: 2px solid color($mainBlue l(- 15%));
             transition: all .6s;
             cursor: pointer;
-
+            text-align: center;
+            @mixin clearfix;
+            @mixin atMedium { padding-right: 30px }
             span {
-              font-weight: 300;
-              &::before { content: ' (' }
-              &::after { content: ')' }
+                display: block;
+                @mixin atMedium {
+                    &:first-child { float: left }
+                    &:last-child  {
+                        float: right;
+                        margin-right: 55px;
+                    }
+                }
+            }
+            @mixin atMedium { text-align: left }
+            @mixin isSmall  { font-size:  1.15rem }
+        }
+        &__trigger {
+            position: absolute;
+            z-index: 20;
+            top:   0;
+            left:  0;
+            right: 0;
+            height: 40px;
+            &:hover {
+                cursor: pointer;
             }
         }
         &__always-shown {
@@ -31,47 +48,46 @@
         }
 
         &__caret {
-            @media only print { display: none }
+            @mixin clickable;
             position: absolute;
-            z-index: 10;
-            top: 0;
-            right: 5px;
-            width: 0;
-            height: 0;
+            transition: all 0.5s ease-in;
+            @media only print { display: none }
+            @mixin atMedium {
+                z-index: 10;
+                top: 5px;
+                right: 25px;
+                width: 0;
+                height: 0;
+                border-width: 0 7px 14.7px 7px;
+                margin: 0;
+            }
+            margin-bottom: 5px;
+            bottom: -15px;
+            right: 50%;
             border-style: solid;
-            border-width: 0 10px 17.3px 10px;
-            border-color: transparent transparent $mainPink transparent;
-            text-align: center;
+            border-color: transparent transparent #FFF transparent;
             font-weight: 700;
-            transform: rotate(-180deg);
-            transition: all 0.3s ease-in;
+            transform: translateX(50%) rotate(-180deg);
+            border-width: 0 5px 8.65px 5px;
 
             &.open {
-                transform: rotate(0);
+                    transform: translateX(50%) rotate(0);
             }
 
-        }
-        &__trigger {
-            &:hover {
-                cursor: pointer;
-            }
         }
 
         &__content {
-            padding: 0 20px 0 5px;
+            padding: 0.35rem 1rem 0 0.215rem;
+            opacity: 0;
             max-height: 0;
             overflow: hidden;
             transition: all .6s;
             line-height: 1.35;
-            @mixin clickable;
-
-            code {
-              font-size: 1rem;
-            }
 
             &.open {
                 max-height: 1500px;
-                padding: 0 20px 20px 20px;
+                opacity: 1;
+                padding: 1rem;
                 &.no-padding { padding: 0 0 20px 0 }
             }
 
@@ -96,4 +112,23 @@
         }
     }
 
+    &--translucent {
+        .accordion-panel {
+            color: #FFF;
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin: 20px 0;
+            background-color: rgba(60, 60, 60, 0.55);
+            &__heading {
+                border-bottom: 2px solid #FFF;
+            }
+            &__caret {
+                bottom: 0;
+                @mixin atMedium { top: 42px; }
+            }
+            &__trigger {
+                top: 40px;
+            }
+        }
+    }
 }

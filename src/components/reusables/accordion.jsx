@@ -7,22 +7,24 @@ export class Panel extends React.Component {
   }
 
   togglePanel() {
-    let newState = 'state';
-    if (this.state.open === 'open')  { newState = false }
-    else { newState = 'open' }
+    const newState = this.state.open == 'open' ? false : 'open'
     this.setState({ open: newState });
   }
 
   render() {
     return (
       <article className='accordion-panel'>
-        <h1 className='accordion-panel__heading' onClick={() => this.togglePanel() }>
+        <span
+            className = { `accordion-panel__caret ${this.state.open}` }
+            onClick   = { this.togglePanel.bind(this) }
+        />
+        <span className='accordion-panel__trigger' onClick={this.togglePanel.bind(this)} />
+        <h1 className='accordion-panel__heading' >
           { this.props.title }<span>{ this.props.score }</span>
         </h1>
-        <span className={'accordion-panel__caret ' + this.state.open} />
         <div
           className={'accordion-panel__content ' + this.state.open}
-          onClick={() => this.togglePanel() }
+          onClick={this.togglePanel.bind(this) }
         >
           { this.props.children }
         </div>
@@ -32,5 +34,10 @@ export class Panel extends React.Component {
 }
 
 export function Accordion (props) {
-  return (<div className='accordion'>{ props.children }</div>)
+  const isTranslucent = props.translucent ? 'accordion--translucent' : false;
+  return (
+    <div className={`accordion ${isTranslucent}`}>
+      { props.children }
+    </div>
+  )
 }

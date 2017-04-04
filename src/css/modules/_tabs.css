@@ -2,6 +2,7 @@
   &__list {
     margin: 0;
     padding: 0;
+    text-align: center;
     li {
       @mixin clickable;
       list-style-type: none;

@@ -3,13 +3,13 @@ import { Accordion, Panel } from './reusables/accordion.jsx';
 
 export default function Skills (props) {
   return (
-    <Accordion>
+    <Accordion translucent = {true}>
       <Panel title="...you love to build is simple and clear design that works well and is visually minimalistic." score="10">
         <p>
           I prefer practical over pretty. Function and comfort are very sexy if you ask me--which is why I could never understand women's fashion (I'm looking at you pocketless jeans). I prefer to appeal to people who can agree with me because they will always be easier to please if you ask me. Bells and whistles make no sense if you have no idea how to do anything or nothing works as it should. <a target='_blank' href='https://en.wikipedia.org/wiki/Steel_Battalion'>Take this for example</a>.
         </p>
       </Panel>
-      <Panel title=" completely comfortable and confident with CSS, including the use of preprocessors such as Sass, Less, Stylus, or PostCSS." score="10">
+      <Panel title=" completely comfortable and confident with CSS [and preprocessors]" score="10">
         <p>
           I use either LESS or PostCSS for my projects, including this one (I personally didn't have the patience to bother with trying to get PostCSS to play nice with React's CSS injection). SASS is fundamentally different from LESS despite not seeming so, but they still are pretty similar and it's not hard at all to pick up one once you know the other. I've looked at stylus (just while writing this), and at first glance it seems Stylus is to CSS as Pug is to HTML--I could see myself trying it out.
         </p>

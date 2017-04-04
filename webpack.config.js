@@ -1,11 +1,11 @@
 const webpack = require('webpack'),
-      path = require('path');
+      path    = require('path'),
 
-const BUILD_DIR = path.resolve(__dirname, './app'),
-      SRC_DIR = path.resolve(__dirname, './src');
+      BUILD_DIR = path.resolve(__dirname, './app'),
+      SRC_DIR   = path.resolve(__dirname, './src');
 
 const config = {
-  entry: SRC_DIR + '/app.jsx',
+  entry: `${SRC_DIR}/app.jsx`,
   output: {
     path: BUILD_DIR,
     filename: 'app.js'
