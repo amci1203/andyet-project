@@ -27,3 +27,18 @@ gulp.task('default', ['transpileJs', 'postCSS'], () => {
   watch('./src/css/**/*.css', () => gulp.start('injectCSS'))
   watch('./src/**/*.{js,jsx}', () => gulp.start('transpileJs'))
 })
+
+gulp.task('production-view', () => {
+    browserSync.init({
+        server: {
+            baseDir: './docs',
+            middleware: [
+                log({ format: '%date %status %method %url' }),
+                fallback({
+                    index: '/index.html',
+                    htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'] // systemjs workaround
+                })
+            ]
+        }
+    })
+})
